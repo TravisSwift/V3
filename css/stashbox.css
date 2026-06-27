@@ -1,0 +1,240 @@
+/* ==========================
+   STASH BOX PAGE
+========================== */
+
+.stashbox-page {
+    padding: 24px;
+    text-align: center;
+}
+
+.stashbox-title-panel {
+    margin-bottom: 20px;
+}
+
+.stashbox-title-panel h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+
+.stashbox-title-panel p {
+    margin: 8px 0 0;
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* ==========================
+   STASH FEED
+========================== */
+
+.stash-feed {
+    max-width: 760px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.stash-item {
+    background:
+        radial-gradient(circle, rgba(0,0,0,.05) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.18), rgba(0,0,0,.04)),
+        #fff0b8;
+
+    background-size:
+        6px 6px,
+        100% 100%,
+        100% 100%;
+
+    border: 4px solid #111;
+    padding: 10px;
+}
+
+.stash-item img,
+.stash-item video {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    background: #fff;
+}
+
+.stash-item video {
+    max-height: 620px;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 760px) {
+
+    .stashbox-page {
+        padding: 18px 10px;
+    }
+
+    .stashbox-title-panel {
+        margin-bottom: 16px;
+    }
+
+    .stashbox-title-panel h1 {
+        font-size: 2.2rem;
+    }
+
+    .stashbox-title-panel p {
+        font-size: .85rem;
+    }
+
+    .stash-feed {
+        max-width: 100%;
+        gap: 18px;
+    }
+
+    .stash-item {
+        padding: 6px;
+    }
+}
+.stash-item video {
+    width: 100%;
+    min-height: 360px;
+    background: #111;
+}
+
+@media (max-width: 760px) {
+    .stash-item video {
+        min-height: 220px;
+    }
+}
+
+/* ==========================
+   STASH ACTION BAR
+========================== */
+
+.stash-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.stash-action-bar {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 10px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    opacity: 0;
+    transform: translateY(12px);
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
+}
+
+.stash-item:hover .stash-action-bar,
+.stash-item:focus-within .stash-action-bar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stash-action-bar button,
+.stash-action-bar a {
+    background: #f6d13d;
+    color: #111;
+
+    border: 3px solid #111;
+
+    padding: 6px 10px;
+
+    font-size: .85rem;
+    font-weight: 900;
+
+    text-transform: uppercase;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.stash-action-bar button:hover,
+.stash-action-bar a:hover {
+    background: #d92d1f;
+    color: #fff;
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+    .stash-action-bar {
+        display: none;
+    }
+}
+
+/* ==========================
+   BACK TO TOP BUTTON
+========================== */
+
+.back-to-top-button {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 999;
+
+    background: #f6d13d;
+    color: #111;
+
+    border: 4px solid #111;
+
+    padding: 12px 16px;
+
+    font-size: .9rem;
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    box-shadow: 4px 4px 0 #111;
+
+    cursor: pointer;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateY(12px);
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
+}
+
+.back-to-top-button.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.back-to-top-button:hover {
+    background: #d92d1f;
+    color: #fff;
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+    .back-to-top-button {
+        right: 12px;
+        bottom: 12px;
+
+        padding: 10px 12px;
+
+        font-size: .75rem;
+    }
+}

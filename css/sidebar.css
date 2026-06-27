@@ -1,0 +1,215 @@
+/* ==========================
+   SIDEBARS
+   Printed Comic Page Style
+========================== */
+
+.site-sidebar {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+/* ==========================
+   SIDEBAR CARDS
+========================== */
+
+.sidebar-card {
+    margin: 0;
+    padding: 8px;
+
+    background:
+        radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.03)),
+        #fff0b8;
+
+    background-size:
+        6px 6px,
+        100% 100%,
+        100% 100%;
+
+    border: 0;
+    box-shadow: none;
+
+    text-align: center;
+}
+
+.sidebar-card + .sidebar-card {
+    margin-top: 10px;
+}
+
+.sidebar-card h2 {
+    margin: 0 0 8px;
+
+    background: #d92d1f;
+    color: #fff;
+
+    border: 3px solid #111;
+    padding: 7px 5px;
+
+    font-size: 0.95rem;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #111;
+}
+
+.sidebar-card h3 {
+    text-align: center;
+    margin: 8px 0;
+    font-size: 1.15rem;
+}
+
+.sidebar-card p {
+    margin: 8px 0 0;
+
+    font-size: 0.85rem;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+/* ==========================
+   IMAGE PLACEHOLDER
+========================== */
+
+.sidebar-image-placeholder {
+    min-height: 95px;
+
+    display: grid;
+    place-items: center;
+
+    background:
+        radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+        #f6d13d;
+
+    background-size: 6px 6px;
+
+    border: 3px solid #111;
+
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* ==========================
+   COMIC AD CARD
+========================== */
+
+.comic-ad {
+    padding: 8px;
+}
+
+.ad-title {
+    background: #d92d1f;
+    color: white;
+
+    border: 3px solid #111;
+
+    padding: 8px;
+
+    font-size: 0.95rem;
+    font-weight: 900;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    text-shadow: 2px 2px 0 #111;
+
+    margin-bottom: 8px;
+}
+
+.ad-cover {
+    border: 3px solid #111;
+
+    background: #f6d13d;
+
+    margin-bottom: 8px;
+
+    overflow: hidden;
+}
+
+.ad-cover img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+.ad-button {
+    background:
+        radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+        #f6d13d;
+
+    background-size: 6px 6px;
+
+    border: 3px solid #111;
+
+    padding: 8px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    text-align: center;
+}
+
+/* ==========================
+   SIDEBAR IMAGES
+========================== */
+
+.character-spotlight-image {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin: 0 auto 12px;
+}
+
+.sidebar-card-image img {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto 10px;
+    border: 3px solid #111;
+}
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 760px) {
+
+    .site-sidebar {
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+    }
+
+    .sidebar-card {
+        margin: 0;
+        padding: 10px;
+        border-bottom: 4px solid #111;
+    }
+
+    .sidebar-card + .sidebar-card {
+        margin-top: 0;
+    }
+
+    .sidebar-card:last-child {
+        border-bottom: 4px solid #111;
+    }
+
+    .sidebar-card h2,
+    .ad-title {
+        font-size: 1rem;
+    }
+
+    .character-spotlight-image,
+    .sidebar-card-image img {
+        max-width: 280px;
+    }
+
+    .ad-button {
+        max-width: 320px;
+        margin: 8px auto 0;
+    }
+}

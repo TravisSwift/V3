@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Super Doobie Online Comics</title>
+
+  <link rel="stylesheet" href="../css/framework.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/sidebar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+</head>
+
+<body>
+
+<div class="site-shell">
+
+    <div id="header-placeholder"></div>
+
+    <div class="site-layout">
+
+        <aside class="site-sidebar site-sidebar-left">
+            <div id="sidebar-left-placeholder"></div>
+        </aside>
+
+        <main class="site-main">
+            <div class="comic-page">
+                <p>
+                    This is the reusable master content area.
+                </p>
+            </div>
+        </main>
+
+        <aside class="site-sidebar site-sidebar-right">
+            <div id="sidebar-right-placeholder"></div>
+        </aside>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+</div>
+
+<script>
+    fetch("../components/header.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("header-placeholder").innerHTML = html;
+        });
+
+    fetch("../components/sidebar-left.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("sidebar-left-placeholder").innerHTML = html;
+        });
+
+    fetch("../components/sidebar-right.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("sidebar-right-placeholder").innerHTML = html;
+        });
+
+    fetch("../components/footer.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("footer-placeholder").innerHTML = html;
+
+            document.getElementById("copyright-year").textContent =
+                new Date().getFullYear();
+        });
+</script>
+
+</body>
+</html>

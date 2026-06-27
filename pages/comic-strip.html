@@ -1,0 +1,181 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Comic Strips</title>
+
+    <link rel="stylesheet" href="../css/framework.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/comic-strip.css">
+  </head>
+
+  <body>
+
+  <div class="site-shell">
+
+    <div id="header-placeholder"></div>
+
+    <div class="site-layout">
+
+      <aside class="site-sidebar site-sidebar-left">
+        <div id="sidebar-left-placeholder"></div>
+      </aside>
+
+      <main class="site-main">
+
+        <section class="comic-strip-page">
+
+          <header class="page-title-panel">
+            <h1>Comic Strips</h1>
+          </header>
+
+          <section class="strip-viewer">
+
+          
+
+            <p id="strip-counter" class="strip-counter">
+              1 of 65
+            </p>
+
+            <div id="strip-click-zone" class="strip-click-zone">
+              <img
+                id="current-strip"
+                src="/SuperDoobieV2/images/kpot-thumbnail.png"
+                alt="The Adventures of Super Doobie Comic Strip"
+                class="strip-image"
+              >
+
+            </div>
+
+            <div class="strip-controls">
+              <button id="previous-strip">◀ Previous</button>
+              <button id="random-strip">Random Strip</button>
+              <button id="next-strip">Next ▶</button>
+            </div>
+
+          </section>
+
+        </section>
+
+      </main>
+
+      <aside class="site-sidebar site-sidebar-right">
+        <div id="sidebar-right-placeholder"></div>
+      </aside>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+  </div>
+
+  <script>
+    fetch("../components/header.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+      });
+
+    fetch("../components/sidebar-left.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("sidebar-left-placeholder").innerHTML = html;
+      });
+
+    fetch("../components/sidebar-right.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("sidebar-right-placeholder").innerHTML = html;
+      });
+
+    fetch("../components/footer.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+
+        document.getElementById("copyright-year").textContent =
+          new Date().getFullYear();
+      });
+  </script>
+
+  <script>
+    const totalStrips = 65;
+    let currentStrip = 1;
+
+    const stripImage = document.getElementById("current-strip");
+    const stripCounter = document.getElementById("strip-counter");
+    const stripClickZone = document.getElementById("strip-click-zone");
+
+    const previousButton = document.getElementById("previous-strip");
+    const randomButton = document.getElementById("random-strip");
+    const nextButton = document.getElementById("next-strip");
+
+    function formatStripNumber(number) {
+      return String(number).padStart(4, "0");
+    }
+
+    function updateStrip() {
+      const stripNumber = formatStripNumber(currentStrip);
+
+      stripImage.src = `/SuperDoobieV2/images/comicstrips/${stripNumber}.jpg`;
+      stripImage.alt = `The Adventures of Super Doobie Comic Strip ${currentStrip}`;
+
+      stripCounter.textContent = `${currentStrip} of ${totalStrips}`;
+    }
+
+    function previousStrip() {
+      if (currentStrip === 1) {
+        currentStrip = totalStrips;
+      } else {
+        currentStrip--;
+      }
+
+      updateStrip();
+    }
+
+    function nextStrip() {
+      if (currentStrip === totalStrips) {
+        currentStrip = 1;
+      } else {
+        currentStrip++;
+      }
+
+      updateStrip();
+    }
+
+    previousButton.addEventListener("click", previousStrip);
+    nextButton.addEventListener("click", nextStrip);
+
+    randomButton.addEventListener("click", function () {
+      let randomStrip = currentStrip;
+
+      while (randomStrip === currentStrip && totalStrips > 1) {
+        randomStrip = Math.floor(Math.random() * totalStrips) + 1;
+      }
+
+      currentStrip = randomStrip;
+      updateStrip();
+    });
+
+    stripClickZone.addEventListener("click", function (event) {
+      const box = stripClickZone.getBoundingClientRect();
+      const clickX = event.clientX - box.left;
+      const centerX = box.width / 2;
+
+      if (clickX < centerX) {
+        previousStrip();
+      } else {
+        nextStrip();
+      }
+    });
+
+  
+    updateStrip();
+  </script>
+
+  </body>
+  </html> 

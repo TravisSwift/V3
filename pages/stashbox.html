@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>The Stash Box</title>
+
+  <link rel="stylesheet" href="../css/framework.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/sidebar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/stashbox.css">
+</head>
+
+<body>
+
+<div class="site-shell">
+
+  <div id="header-placeholder"></div>
+
+  <div class="site-layout">
+
+    <aside class="site-sidebar site-sidebar-left">
+      <div id="sidebar-left-placeholder"></div>
+    </aside>
+
+    <main class="site-main">
+
+      <section class="stashbox-page">
+
+        <header class="stashbox-title-panel">
+          <h1>The Stash Box</h1>
+          <p>Random stuff from the world of Super Doobie.</p>
+        </header>
+
+        <div id="stash-feed" class="stash-feed"></div>
+
+      </section>
+
+    </main>
+
+    <aside class="site-sidebar site-sidebar-right">
+      <div id="sidebar-right-placeholder"></div>
+    </aside>
+
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+</div>
+
+<script>
+  fetch("../components/header.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("header-placeholder").innerHTML = html;
+    });
+
+  fetch("../components/sidebar-left.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("sidebar-left-placeholder").innerHTML = html;
+    });
+
+  fetch("../components/sidebar-right.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("sidebar-right-placeholder").innerHTML = html;
+    });
+
+  fetch("../components/footer.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("footer-placeholder").innerHTML = html;
+
+      document.getElementById("copyright-year").textContent =
+        new Date().getFullYear();
+    });
+</script>
+
+<script src="../js/stashbox.js"></script>
+
+<button id="back-to-top" class="back-to-top-button">
+  ▲ Back to Top
+</button>
+
+<script>
+  const backToTopButton = document.getElementById("back-to-top");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 600) {
+      backToTopButton.classList.add("show");
+    } else {
+      backToTopButton.classList.remove("show");
+    }
+  });
+
+  backToTopButton.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+</body>
+</html>

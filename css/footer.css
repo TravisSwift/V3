@@ -1,0 +1,89 @@
+/* ==========================
+   FOOTER
+========================== */
+
+.site-footer {
+    margin-top: 12px;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    text-align: center;
+}
+
+.footer-inner {
+    margin: 0 auto;
+    padding: 24px 20px 20px;
+
+    background:
+        radial-gradient(circle, rgba(0,0,0,.06) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.18), rgba(0,0,0,.04)),
+        #f6d13d;
+
+    background-size:
+        6px 6px,
+        100% 100%,
+        100% 100%;
+
+    border: 0;
+    box-shadow: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-doobie {
+    width: 78px;
+    height: auto;
+    margin-bottom: 8px;
+}
+
+.footer-main {
+    margin: 0;
+
+    font-size: 1.15rem;
+    font-weight: 900;
+    line-height: 1.1;
+
+    text-transform: uppercase;
+}
+
+.footer-sub {
+    margin: 4px 0 0;
+
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+.heart {
+    color: #d92d1f;
+    font-size: 1.1em;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:760px) {
+    .site-footer {
+        margin-top: 8px;
+    }
+
+    .footer-inner {
+        padding: 16px 12px 14px;
+    }
+
+    .footer-doobie {
+        width: 54px;
+    }
+
+    .footer-main {
+        font-size: .85rem;
+    }
+
+    .footer-sub {
+        font-size: .65rem;
+    }
+}
