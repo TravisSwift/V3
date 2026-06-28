@@ -554,7 +554,7 @@ function createStashItem(image) {
     item.className = "stash-item";
 
     const fileName = image.file;
-    const filePath = `/SuperDoobieV2/images/stashbox/${fileName}`;
+    const filePath = "../images/stashbox/" + fileName;
 
     if (isVideo(fileName)) {
         const video = document.createElement("video");

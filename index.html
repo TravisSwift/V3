@@ -34,11 +34,11 @@
 
 <link rel="canonical" href="https://superdoobie.com/pages/comic-strip.html">
 
-  <link rel="stylesheet" href="../css/framework.css">
-  <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/sidebar.css">
-  <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/comic-strip.css">
+<link rel="stylesheet" href="./css/framework.css">
+<link rel="stylesheet" href="./css/header.css">
+<link rel="stylesheet" href="./css/sidebar.css">
+<link rel="stylesheet" href="./css/footer.css">
+<link rel="stylesheet" href="./css/comic-strip.css">
 </head>
 
 <body>
@@ -99,25 +99,25 @@
 </div>
 
 <script>
-  fetch("../components/header.html")
+  fetch("./components/header.html")
     .then(response => response.text())
     .then(html => {
       document.getElementById("header-placeholder").innerHTML = html;
     });
 
-  fetch("../components/sidebar-left.html")
+  fetch("./components/sidebar-left.html")
     .then(response => response.text())
     .then(html => {
       document.getElementById("sidebar-left-placeholder").innerHTML = html;
     });
 
-  fetch("../components/sidebar-right.html")
+  fetch("./components/sidebar-right.html")
     .then(response => response.text())
     .then(html => {
       document.getElementById("sidebar-right-placeholder").innerHTML = html;
     });
 
-  fetch("../components/footer.html")
+  fetch("./components/footer.html")
     .then(response => response.text())
     .then(html => {
       document.getElementById("footer-placeholder").innerHTML = html;
@@ -149,7 +149,7 @@
   function updateStrip() {
     const stripNumber = formatStripNumber(currentStrip);
 
-    stripImage.src = `../images/comicstrips/${stripNumber}.png`;
+    stripImage.src = `./images/comicstrips/${stripNumber}.png`;
     stripImage.alt = `The Adventures of Super Doobie Comic Strip ${currentStrip}`;
 
     stripCounter.textContent = `${currentStrip} of ${totalStrips}`;
